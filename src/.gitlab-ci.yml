@@ -1,0 +1,21 @@
+stages:
+  - build
+  - package
+build:
+  stage: build
+  image: node:latest
+  script:
+    - npm install
+    - npm run build
+  artifacts:
+    paths:
+      - dist/
+package:
+  stage: package
+  image: docker:latest
+  services:
+    - docker:dind
+  script:
+    - docker build -t $CI_REGISTRY_IMAGE .
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker push $CI_REGISTRY_IMAGE
