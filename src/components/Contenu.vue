@@ -1,4 +1,4 @@
-<!-- Liste des produits du frigo -->
+<!-- Liste des produits -->
 <script setup>
 import AffichageProduits from "./AffichageProduits.vue";
 import FormAjout from "./FormAjout.vue";

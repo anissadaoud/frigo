@@ -1,4 +1,3 @@
-<!-- Affichage des produits de la liste -->
 <script setup>
 const { produit } = defineProps(["produit"]);
 </script>
